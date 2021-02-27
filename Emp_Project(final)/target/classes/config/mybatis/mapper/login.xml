@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="login">
+	
+	<!-- id를 통한 로그인 정보 검색 -->
+  	<select id="login_one" resultType="emp" parameterType="java.lang.String">
+		select * from emp_project where id = #{id}
+   	</select>
+	
+	<!-- 이름과 주민번호를 통해서 ID 검색 -->
+	<select id="find_id" resultType="emp" parameterType="java.util.HashMap">
+		select * from emp_project where emp_name = #{emp_name} and email = #{email}
+	</select>
+	
+	<!-- ID와 주민등록번호를 통해서 PWD 검색 -->
+	<select id="find_pwd" resultType="emp" parameterType="java.util.HashMap">
+		select * from emp_project where id = #{id} and email = #{email}
+	</select>
+	
+	<!-- 관리자 회원가입 -->
+	<insert id="mgr_insert" parameterType="emp">
+		insert into emp_project
+		values(
+		seq_emp_idx.nextVal,
+		#{dept_name},
+		#{emp_name},
+		#{gender},
+		#{reg_num},
+		#{phone},
+		#{email},
+		#{addr},
+		#{addr_info},
+		sysdate,
+		#{id},
+		#{pwd},
+		1
+		)
+	</insert>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,46 @@
+/* --------------------- widgetBox ---------------------*/
+.widgetBox { background-color: #214b97; padding: 30px 0; }
+
+.widgetBox .boardWrap { overflow: hidden; margin-bottom: 10px; }
+
+.widgetBox .boardWrap .boardArea { overflow: hidden; max-width: 720px; background-color: #fff; border: 1px solid #d2d2d2; position: relative; padding: 35px 25px 30px; -webkit-box-sizing: border-box; box-sizing: border-box; margin: 0 auto;}
+
+.boardArea {height:140px;}
+
+.widgetBox .boardWrap .boardArea h3 { float: left; color: #214b97; font-size: 2.4rem; font-weight: 700; }
+
+.widgetBox .boardWrap .boardArea ul { float: right; width: calc(100% - 115px); display:block;}
+
+.widgetBox .boardWrap .boardArea ul li { margin: 0 0 6px; }
+
+.widgetBox .boardWrap .boardArea ul li a { color: #444; font-size: 1.4rem; }
+
+.widgetBox .boardWrap .boardArea ul li a > p { display: block; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; width: calc(100% - 80px); }
+
+.widgetBox .boardWrap .boardArea ul li a > .date { float: right; }
+
+.widgetBox .boardWrap .boardArea a.board-moreBtn { position: absolute; top: 85px; left: 30px; color: #4c4c4c; font-size: 1.5rem; background: url("../images/main/board-moreBtn.png") right 3px no-repeat; padding-right: 15px; }
+/*# sourceMappingURL=main.css.map */
+
+.task-box { background-color: lightgray; padding: 30px 0;}
+
+.task-box .task-wrap{  overflow: hidden; margin-bottom: 10px; }
+
+.task { overflow: hidden; max-width: 720px; background-color: #fff; border: 1px solid #d2d2d2; position: relative; padding: 35px 25px 30px; -webkit-box-sizing: border-box; box-sizing: border-box; margin: 0 auto; }
+
+.task h2 {float: left; color: #214b97; font-size: 2.4rem; font-weight: 700;}
+
+.task table { float: right; width: calc(100% - 115px); font-size: 1.4rem; margin-bottom: 30px; margin-left: -1px; vertical-align: middle; padding: 14px 8px; }
+
+.postTable thead th{  color: #214b97; font-weight: 700; background-color: #f3f6f8; text-align: center; border: 1px solid #d6d6d6;  padding: 5px 8px;}
+
+.postTable tbody td {border-bottom: 1px solid #d6d6d6; border-left: 1px solid #d6d6d6; border-right: 1px solid #d6d6d6; vertical-align: middle; padding: 10px 8px; color: #4c4c4c;}
+
+.in-task { float: right; width: calc(100% - 115px); font-size: 1.4rem; margin-left: -1px; vertical-align: middle; }
+
+.task-input {width:84%; margin-left:3px; margin-right: 3px;}
+
+.main_footer_info {text-align: center; color: #6c6c6c; font-size: 1.4rem;}
+
+.delimg {margin-left:4px;}
+

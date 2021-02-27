@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		
+	<!-- context-1-datasource는 Service 클래스 역할을 한다. (db연결하는 bean만 생성)
+			db.properties는 접근하는 db의 정보를 뜻한다.
+			context:property-placeholder를 통해서 db정보를 context-1에서 참조할 수 있다.
+			(만약 자동생성이 안되면 하단의 Namespace에서 context부분 체크)
+			
+			db.properties에 connection pool등의 정보를 입력하면 된다.
+	-->
+	<context:property-placeholder
+					location="classpath:config/mybatis/db.properties"/>
+	
+	<!-- 접속을 위한 MAVEN 기반의 LIBRARY를 다운로드 
+		  웹 브라우저에서  http://mvnrepository.com/에 접속한다.
+			MAVEN속성으로 되어있는 프로젝트는 LIBRARY를 온라인으로 다운받는 것이 가능하다.
+			MAVEN 기반의 프로젝트에게 LIBRARY를 제공해주는 사이트이다.
+			
+			DBCP를 검색한다.
+			
+			Commons DBCP를 클릭하고 들어온다.
+			DB쪽은 최신버젼도 괜찮게 사용이 되어서 최신인 1.4버젼을 누르고 들어온다.
+			
+			MAVEN영역을 클릭해서 텍스트를 전체 복사한다.
+			
+			POM.XML로 간다. (개발자는 자신이 사용하는 모든 라이브러리를 pom.xml에 저장한다.)
+	-->
+			
+			<!-- DB는 싱글톤으로 한번만 연결하면 된다.
+					BEAN으로 객체를 생성한다.
+					
+					클래스인데 확장자를 알 수 없으니 인터넷에서 찾아야한다.
+					저장시 오류가 나지 않으면 라이브러리가 제대로 받아졌다는 뜻이다. -->
+	
+	<!-- JMDI를 대체하는 영역
+			db.properties안의 요소(user,pwd,driver)들은 셋터 인젝션으로 EL표기법을 통해서 사용할 수 있다. -->
+	<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${driver}"/> 
+		<property name="url" value="${url}"/>
+		<property name="username" value="${user}"/>
+		<property name="password" value="${password}"/>
+		<property name="maxActive" value="20"/>
+	</bean>
+	
+</beans>

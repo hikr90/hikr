@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="task">
+	<!-- 직원에 따라서 할일 출력 -->
+	<select id="task_one" resultType="task" parameterType="int">
+		select * from task where emp_idx = #{emp_idx} order by TASK_IDX desc
+	</select>
+	
+	<!-- task_idx에 따라서 글 삭제 --> 
+	<delete id="task_del" parameterType="int">
+		delete from task where task_idx = #{task_idx}
+	</delete>
+
+	<!-- task_idx에 따라서 글 삭제 --> 
+	<insert id="task_insert" parameterType="task">
+		insert into task values(
+			seq_task_idx.nextVal,
+			#{emp_idx},
+			#{task}
+		)
+	</insert>
+</mapper>

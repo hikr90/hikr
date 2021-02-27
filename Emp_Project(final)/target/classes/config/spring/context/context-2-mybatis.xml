@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		 
+	 <!-- BEAN으로 만들수 있는 SQLFACTORYSESSION 
+	 		db 연결 정보를 가지고있는 ds객체를 참조해야한다. -->
+	<bean id="factoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="ds"/>
+		<property name="configLocation" value="classpath:config/mybatis/mybatis-config.xml"/>
+	</bean>	 
+	
+	<!-- SQLSESSION
+			sqlsessiontem은 기본생성자가 없고 파라미터를 받는 생성자만 있어서 생성자 인젝션으로 factorybean을 받아야한다. -->
+	<bean id="sqlSessionBean" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="factoryBean"/>
+	</bean>
+	
+</beans>

@@ -1,0 +1,314 @@
+@charset "UTF-8";
+/* ====================== formArea ====================== */
+._formArea { margin-bottom: 40px; }
+
+._formArea .f-srchWrap { width: 100%; text-align: left; background-color: #e8edf2; padding: 25px; -webkit-box-sizing: border-box; box-sizing: border-box; margin-bottom: 15px; }
+
+._formArea .f-srchWrap .srchArea { display: inline-block; vertical-align: middle; margin: 0 6px 15px 0; }
+
+._formArea .f-srchWrap .srchArea .srcLabel { display: block; color: #64738d; font-size: 1.5rem; font-weight: 700; margin-bottom: 10px; }
+
+._formArea .f-srchWrap .srchArea .srchBox { display: inline-block; }
+
+._formArea .f-srchWrap .srchArea .srch-cdt-text { width: 300px; }
+
+.f-srchWrap {position: relative;}
+
+.search_nav {display: block; position:relative; right:-800px;}
+
+._formArea .cateWrap { overflow: hidden; position: relative; }
+
+._formArea .cateWrap::before { content: ''; width: 100%; height: 3px; background-color: #dfdfdf; position: absolute; top: 50px; left: 0; z-index: -1; }
+
+._formArea .cateWrap .cateList { overflow: hidden; float: left; padding: 0 5px; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+._formArea .cateWrap .cateList > li { float: left; }
+
+._formArea .cateWrap .cateList > li > a { display: block; min-width: 107px; color: #333; font-size: 1.6rem; font-weight: 700; text-align: center; padding: 16px 0; -webkit-box-sizing: border-box; box-sizing: border-box; margin: 0 20px; border-bottom: 3px solid transparent; }
+
+._formArea .cateWrap .cateList > li._active > a { color: #3482fe; font-weight: 800; border-color: #3482fe; }
+
+._formArea .sortWrap { margin: 0 0 10px; }
+
+._formArea .sortWrap .srchArea { margin: 0; }
+
+._formArea .sortWrap .srchArea .srchBox { display: inline-block; vertical-align: top; margin-right: 10px; }
+
+._formArea .sortWrap .srchArea .srchBox .srcName { color: #214b97; border: 1px solid #214b97; }
+
+._formArea .sortWrap .srchArea .srchBox .srcName::after { width: 11px; height: 7px; background-image: url("../images/form/srchBox-arrow-sort.png"); }
+
+.idWrap {width:50%; transform: translate(50%);}
+
+._formArea .postWrap h4 { color: #214b97; font-size: 1.8rem; font-weight: 700; margin-bottom: 15px; }
+
+.postWrap h2 {margin-bottom:20px;}
+
+._formArea .postWrap .tableTop { position: relative; display: inline-block; width: 100%; margin-bottom: 15px; }
+
+._formArea .postWrap .tableTop .srchArea { vertical-align: middle; margin-top: -5px; display: inline-block; margin-right: 10px; }
+
+._formArea .postWrap .tableTop .postCount { vertical-align: middle; margin-top: -5px; display: inline-block; color: #666; font-size: 1.4rem; font-weight: 700; }
+
+._formArea .postWrap .tableTop .postCount strong { color: #ff3600; }
+
+._formArea .postWrap .postTableWrap { overflow: hidden; position: relative; border-top: 1px solid #162f58; }
+
+._formArea .postWrap table.postTable { font-size: 1.4rem; margin-bottom: 30px;  }
+
+._formArea .postWrap table.postTable thead th, ._formArea .postWrap table.postTable tbody th, ._formArea .postWrap table.postTable tbody td, ._formArea .postWrap table.postTable tfoot th, ._formArea .postWrap table.postTable tfoot td { border-right:1px solid #d6d6d6; border-bottom: 1px solid #d6d6d6; border-left: 1px solid #d6d6d6; vertical-align: middle; padding: 14px 8px; }
+
+._formArea .postWrap table.postTable thead th { color: #214b97; font-weight: 700; background-color: #f3f6f8; }
+
+._formArea .postWrap table.postTable tfoot th, ._formArea .postWrap table.postTable tfoot td, ._formArea .postWrap table.postTable tbody th, ._formArea .postWrap table.postTable tbody td { color: #666; text-align: center; vetical-align:middle; }
+
+._formArea .postWrap table.postTable tfoot th a, ._formArea .postWrap table.postTable tfoot td a, ._formArea .postWrap table.postTable tbody th a, ._formArea .postWrap table.postTable tbody td a { color: #666; }
+
+._formArea .postWrap table.postTable tfoot th, ._formArea .postWrap table.postTable tbody th { color: #214b97; font-weight: 700; }
+
+._formArea .postWrap table.postTable tfoot span.time, ._formArea .postWrap table.postTable tbody span.time { display: inline-block; margin-left: 5px; }
+
+._formArea .postWrap table.postTable tfoot span.leave, ._formArea .postWrap table.postTable tbody span.leave { display: inline-block; color: #fff; font-size: 1.4rem; background-color: #4089fe; padding: 4px 8px; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+._formArea .postWrap table.postTable td._title span.title-cate { font-weight: 700; margin-right: 5px; }
+
+._formArea .postWrap table.postTable td.file > i { text-indent: -5000px; display: block; width: 15px; height: 17px; background: url("../images/form/icon-file.png") center center no-repeat; margin: 0 auto; }
+
+._formArea .postWrap table.postTable td.fileBunch i { text-indent: -5000px; display: inline-block; width: 15px; height: 15px; margin: 2px 1px; }
+
+._formArea .postWrap table.postTable td.fileBunch i.file-pdf { background-position: -80px top; }
+
+._formArea .postWrap table.postTable td.fileBunch i.file-ppt { background-position: -60px top; }
+
+._formArea .postWrap table.postTable td.fileBunch i.file-xls { background-position: left bottom; }
+
+._formArea .postWrap table.postTable td.fileBunch i.file-doc { background-position: -20px bottom; }
+
+._formArea .postWrap table.postTable td.fileBunch i.file-hwp { background-position: -40px bottom; }
+
+._formArea .postWrap table.postTable tfoot:before { content: ''; position: absolute; margin-top: -1px; width: 100%; height: 1px; background-color: #b4b4b4; }
+
+._formArea td.limit { color: #dc1a1a !important; }
+
+._formArea .postWrite, ._formArea .postView { position: relative; border-top: 1px solid #162f58; margin-bottom: 30px; }
+
+._formArea .postWrite::after, ._formArea .postView::after { content: ''; width: 100%; height: 1px; background-color: #162f58; position: absolute; bottom: 0; left: 0; }
+
+._formArea .postWrite input[type="text"], ._formArea .postView input[type="text"] { width: 100%; margin-bottom: 5px; }
+
+._formArea .postWrite input[type="text"]::-webkit-input-placeholder, ._formArea .postView input[type="text"]::-webkit-input-placeholder { color: #bababa; font-size: 1.4rem; }
+
+._formArea .postWrite input[type="text"]:-ms-input-placeholder, ._formArea .postView input[type="text"]:-ms-input-placeholder { color: #bababa; font-size: 1.4rem; }
+
+._formArea .postWrite input[type="text"]::-ms-input-placeholder, ._formArea .postView input[type="text"]::-ms-input-placeholder { color: #bababa; font-size: 1.4rem; }
+
+._formArea .postWrite input[type="text"]::placeholder, ._formArea .postView input[type="text"]::placeholder { color: #bababa; font-size: 1.4rem; }
+
+._formArea .postWrite .srchArea, ._formArea .postView .srchArea { width: 100%; margin: 0 0 5px 0; }
+
+._formArea .postWrite select, ._formArea .postView select { height: 43px; line-height: 43px; border: 0; -webkit-box-sizing: border-box; box-sizing: border-box; vertical-align: middle; color: #727272; font-size: 1.4rem; text-indent: 10px; vertical-align: middle; margin-top: -5px; display: inline-block; width: 100%; max-width: 360px; }
+
+._formArea .postWrite textarea, ._formArea .postView textarea { width: 100%; min-height: 83px; font-size: 1.4rem; border: 1px solid #d7d7d7; padding: 10px; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+._formArea .postWrite textarea::-webkit-input-placeholder, ._formArea .postView textarea::-webkit-input-placeholder { color: #bababa; font-size: 1.4rem; }
+
+._formArea .postWrite textarea:-ms-input-placeholder, ._formArea .postView textarea:-ms-input-placeholder { color: #bababa; font-size: 1.4rem; }
+
+._formArea .postWrite textarea::-ms-input-placeholder, ._formArea .postView textarea::-ms-input-placeholder { color: #bababa; font-size: 1.4rem; }
+
+._formArea .postWrite textarea::placeholder, ._formArea .postView textarea::placeholder { color: #bababa; font-size: 1.4rem; }
+
+._formArea .postWrite dd.post_text, ._formArea .postView dd.post_text { height: 200px; }
+
+._formArea .postWrite dd.post_text, ._formArea .postView dd.post_text { vertical-align: top; }
+
+._formArea .postWrite dd.post_text textarea, ._formArea .postView dd.post_text textarea { height: 95%; }
+
+._formArea .postWrite .stb-box-btn, ._formArea .postView .stb-box-btn { vertical-align: middle; margin-top: -5px; display: inline-block; }
+
+._formArea .postWrite .postBtn, ._formArea .postView .postBtn { height: 43px; line-height: 43px; border: 0; -webkit-box-sizing: border-box; box-sizing: border-box; vertical-align: middle; color: #fff; font-size: 1.4rem; font-weight: 700; min-width: 69px; background-color: #214b97; margin-bottom: 5px; padding: 0 15px; }
+
+._formArea .postWrite .vstShow, ._formArea .postView .vstShow { height: 43px; line-height: 43px; border: 0; -webkit-box-sizing: border-box; box-sizing: border-box; vertical-align: middle; display: block; color: #fff; font-size: 1.3rem; font-weight: 400; height: 25px; line-height: 25px; background-color: #214b97; border-radius: 5px; padding: 0 6px; margin: 10px 0; }
+
+._formArea .postWrite dl, ._formArea .postView dl { display: table; table-layout: fixed; width: 100%; border-bottom: 1px solid #d6d6d6; }
+
+._formArea .postWrite dl > dt, ._formArea .postWrite dl > dd, ._formArea .postView dl > dt, ._formArea .postView dl > dd { display: table-cell; padding: 10px 10px 5px; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+._formArea .postWrite dl > dt, ._formArea .postView dl > dt { width: 130px; font-weight: 700; background-color: #f6f6f6; padding: 20px 0 0 15px; vertical-align: top; }
+
+._formArea .postWrite dl > dt em, ._formArea .postView dl > dt em { word-wrap: break-word; word-break: keep-all; display: block; width: 80%; color: #214b97; font-size: 1.3rem; font-weight: 700; margin: 10px 0; }
+
+._formArea .postWrite dl > dd, ._formArea .postView dl > dd { width: calc(100% - 130px); height: 60px; font-size: 1.4rem; vertical-align: middle; }
+
+._formArea .postWrite dl > dd._inputArea .readonly, ._formArea .postView dl > dd._inputArea .readonly { background-color: #f9f9f9; }
+
+._formArea .postWrite dl > dd._inputArea .readonly2, ._formArea .postView dl > dd._inputArea .readonly2 { border-radius: 0; border: 0; border-bottom: 1px solid #d6d6d6; }
+
+._formArea .postWrite dl > dd._inputArea .p_num, ._formArea .postView dl > dd._inputArea .p_num { display: inline-block; vertical-align: middle; margin-right: 8%; }
+
+._formArea .postWrite dl > dd._inputArea .p_num label, ._formArea .postView dl > dd._inputArea .p_num label { font-size: 1.5rem; font-weight: 700; margin-right: 25px; vertical-align: middle; margin-top: -5px; display: inline-block; }
+
+._formArea .postWrite dl > dd._inputArea .p_num input[type="text"], ._formArea .postView dl > dd._inputArea .p_num input[type="text"] { width: 90px; }
+
+._formArea .postWrite dl > dd._inputArea .p_num input[type="text"].nop, ._formArea .postView dl > dd._inputArea .p_num input[type="text"].nop { width: 90px !important; }
+
+._formArea .postWrite dl > dd._inputArea .p_num span.unit, ._formArea .postView dl > dd._inputArea .p_num span.unit { color: #727272; margin: 0 5px; vertical-align: middle; margin-top: -5px; display: inline-block; }
+
+._formArea .postWrite dl > dd._inputArea .p_num span.all_num, ._formArea .postView dl > dd._inputArea .p_num span.all_num { display: inline-block; width: 20px; text-align: right; color: #727272; margin: 0 5px; vertical-align: middle; margin-top: -5px; display: inline-block; }
+
+._formArea .postWrite dl > dd._inputArea .p_num:last-of-type, ._formArea .postView dl > dd._inputArea .p_num:last-of-type { margin-right: 0 !important; }
+
+._formArea .postWrite dl > dd .period-text, ._formArea .postView dl > dd .period-text { width: 130px !important; background: #fff url("../images/form/input-datepicker-icon-dark.png") 90% 10px no-repeat; }
+
+._formArea .postWrite dl > dd .period-dash, ._formArea .postView dl > dd .period-dash { vertical-align: middle; margin-top: -5px; display: inline-block; }
+
+._formArea .postWrite dl > dd.hasSrchBtn input[type="text"], ._formArea .postView dl > dd.hasSrchBtn input[type="text"] { width: 50%; }
+
+._formArea .postWrite dl._2p, ._formArea .postView dl._2p { float: left; width: 50%; }
+
+._formArea .postWrite dl.dd_2 > dd, ._formArea .postView dl.dd_2 > dd { display: block; width: 100%; height: auto; }
+
+._formArea .postWrite dl.dd_2 ._visitArea, ._formArea .postView dl.dd_2 ._visitArea { position: relative; border-top: 1px solid #d6d6d6; }
+
+._formArea .postWrite dl.dd_2 ._visitArea:first-of-type, ._formArea .postView dl.dd_2 ._visitArea:first-of-type { border-top: 0 !important; }
+
+._formArea .postWrite dl .sel_2part .srchArea, ._formArea .postView dl .sel_2part .srchArea { width: 49%; display: inline-block; }
+
+._formArea .postWrite dl .sel_2part > input[type="text"], ._formArea .postView dl .sel_2part > input[type="text"] { width: 70%; }
+
+._formArea .postWrite dl .sel_3part .srchArea, ._formArea .postView dl .sel_3part .srchArea { width: 31%; display: inline-block; }
+
+._formArea .postWrite dl .sel_3part > input[type="text"], ._formArea .postView dl .sel_3part > input[type="text"] { width: 31%; }
+
+._formArea .postWrite dl.title-radio input[type="text"], ._formArea .postView dl.title-radio input[type="text"] { display: inline-block; width: 70%; margin-right: 3%; }
+
+._formArea .postWrite dl.title-radio ._radioBox2, ._formArea .postView dl.title-radio ._radioBox2 { display: inline-block; width: 25%; }
+
+._formArea .postWrite dl .fileBox input[type="text"]:first-child, ._formArea .postWrite dl .fileAdd input[type="text"]:first-child, ._formArea .postView dl .fileBox input[type="text"]:first-child, ._formArea .postView dl .fileAdd input[type="text"]:first-child { margin-left: 0; }
+
+._formArea .postWrite dl .fileBox input[type="text"], ._formArea .postWrite dl .fileAdd input[type="text"], ._formArea .postView dl .fileBox input[type="text"], ._formArea .postView dl .fileAdd input[type="text"] { width: calc(60% - 5px); margin: 0 0 5px 5px; }
+
+._formArea .postWrite dl .fileBox .file-upload, ._formArea .postView dl .fileBox .file-upload { position: relative; }
+
+._formArea .postWrite dl .fileBox .file-upload .file-name, ._formArea .postView dl .fileBox .file-upload .file-name { color: #438bfe; padding-right: 40px; }
+
+._formArea .postWrite dl .fileBox .file-upload .file-del, ._formArea .postView dl .fileBox .file-upload .file-del { position: absolute; top: 14px; left: calc(60% - 30px); width: 10px; height: 11px; text-indent: -5000px; background: url("../images/form/file-del.png") left top no-repeat; }
+
+._formArea .postWrite dl .fileBox .file-upload .file-plh, ._formArea .postView dl .fileBox .file-upload .file-plh { color: #b1b1b1; font-size: 1.4rem; background-color: #f4f4f4; margin-left: 2px; }
+
+._formArea .postWrite dl .fileAdd, ._formArea .postView dl .fileAdd { position: relative; height: 43px; margin-bottom: 5px; }
+
+._formArea .postWrite dl .fileAdd .file-add, ._formArea .postView dl .fileAdd .file-add { margin-right: 1px !important; }
+
+._formArea .postWrite dl .fileAdd .input-file-div, ._formArea .postView dl .fileAdd .input-file-div { overflow: hidden; display: inline-block; width: 60%; height: 43px; }
+
+._formArea .postWrite dl .fileAdd .input-file-div .file_input_textbox, ._formArea .postView dl .fileAdd .input-file-div .file_input_textbox { float: left; width: 99%; }
+
+._formArea .postWrite dl .fileAdd .input-file-div .input-file-btn, ._formArea .postView dl .fileAdd .input-file-div .input-file-btn { position: absolute; left: 60%; top: 0; width: 81px; }
+
+._formArea .postWrite dl .fileAdd .input-file-div .input-file-btn .file_input_hidden, ._formArea .postView dl .fileAdd .input-file-div .input-file-btn .file_input_hidden { cursor: pointer; width: 81px; height: 39px; font-size: 1.4rem; position: absolute; right: 0px; top: 0px; opacity: 0; }
+
+._formArea .postWrite dl .fileAdd .input-file-div .input-file-btn .postBtn, ._formArea .postView dl .fileAdd .input-file-div .input-file-btn .postBtn { cursor: pointer; }
+
+._formArea .postWrite dl .fileAdd .list-del, ._formArea .postWrite dl .fileAdd .list-add, ._formArea .postView dl .fileAdd .list-del, ._formArea .postView dl .fileAdd .list-add { margin: 9px 0 0 90px; vertical-align: top; }
+
+._formArea .postWrite dl:last-of-type, ._formArea .postView dl:last-of-type { border-bottom: 0; }
+
+._formArea .postWrite dl.post-info dd, ._formArea .postView dl.post-info dd { width: calc(33% - 130px); color: #727272; }
+
+._formArea .postWrite dl.post-info .depart, ._formArea .postView dl.post-info .depart { width: calc(100% - 230px); }
+
+._formArea .postWrite .in-date-area select, ._formArea .postView .in-date-area select { width: 45px; margin-left: 5px; text-indent: 5px; }
+
+._formArea .postWrite ._chkBox, ._formArea .postView ._chkBox { position: relative; display: inline-block; vertical-align: middle; z-index: 1; }
+
+._formArea .postWrite ._chkBox input[type="checkbox"], ._formArea .postView ._chkBox input[type="checkbox"] { position: absolute; top: 0; left: 1px; margin: 0; width: 21px; height: 21px; opacity: 0; }
+
+._formArea .postWrite ._chkBox input[type="checkbox"] + label, ._formArea .postView ._chkBox input[type="checkbox"] + label { display: inline-block; font-size: 0; width: 22px; height: 22px; cursor: pointer; vertical-align: middle; border: 1px solid #d7d7d7; border-radius: 5px; background-color: #fff; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+._formArea .postWrite ._chkBox input[type="checkbox"]:checked + label, ._formArea .postView ._chkBox input[type="checkbox"]:checked + label { background: #fff url("../images/form/bul-chk.png") center center no-repeat; }
+
+._formArea .postWrite ._chkBox input[type="checkbox"]:focus + label, ._formArea .postView ._chkBox input[type="checkbox"]:focus + label { -webkit-box-shadow: 0px 0px 2px 1px rgba(52, 130, 254, 0.5); box-shadow: 0px 0px 2px 1px rgba(52, 130, 254, 0.5); }
+
+._formArea .postWrite ._radioBox._dfSize label, ._formArea .postView ._radioBox._dfSize label { font-size: 1.4rem; font-weight: 400; margin-top: 1px; display: inline-block; }
+
+._formArea .postWrite ._radioBox2 .radio, ._formArea .postView ._radioBox2 .radio { position: relative; display: inline-block; vertical-align: middle; z-index: 1; margin-right: 5%; }
+
+._formArea .postWrite ._radioBox2 .radio input[type="radio"], ._formArea .postView ._radioBox2 .radio input[type="radio"] { position: absolute; top: 0; left: 0; margin: 0; width: 18px; height: 19px; z-index: -1; }
+
+._formArea .postWrite ._radioBox2 .radio input[type="radio"] + label span, ._formArea .postView ._radioBox2 .radio input[type="radio"] + label span { vertical-align: middle; display: inline-block; font-size: 0; width: 18px; height: 19px; background: url("../images/form/radioBtn.png") center top no-repeat; margin-right: 5px; }
+
+._formArea .postWrite ._radioBox2 .radio input[type="radio"]:checked + label span, ._formArea .postView ._radioBox2 .radio input[type="radio"]:checked + label span { background-position: center -59px; }
+
+._formArea .plusWrap { border-bottom: 1px solid #d6d6d6; }
+
+._formArea .postView dl > dd { padding: 15px 10px; line-height: 1.6; }
+
+._formArea .postView dl > dd._inputArea .p_num label, ._formArea .postView dl > dd._inputArea .p_num span.unit, ._formArea .postView dl > dd._inputArea .p_num span.all_num, ._formArea .postView dl > dd._inputArea .p_num .period-dash { margin-top: 0; }
+
+._formArea .postView dl > dd._inputArea._visitDd { padding: 10px; }
+
+._formArea .postView dl > dd._inputArea._visitDd ._visitArea { border-top: 0; padding: 5px 0; }
+
+._formArea .postView dl._chkArea span.chk-yes, ._formArea .postView dl._chkArea span.chk-no { display: inline-block; width: 22px; height: 22px; vertical-align: middle; border: 1px solid #d7d7d7; border-radius: 5px; background-color: #fff; -webkit-box-sizing: border-box; box-sizing: border-box; text-indent: -5000px; }
+
+._formArea .postView dl._chkArea span.chk-yes { background: #fff url("../images/form/bul-chk.png") center center no-repeat; }
+
+._formArea .postView dl ._radioBox input[type="radio"] + label { font-size: 1.4rem; font-weight: 400; }
+
+._formArea .postView dl ._radioBox input[type="radio"] { top: 5px; }
+
+._formArea .postView dl._fileArea .fileList li, ._formArea .postView dl .img-file-area .fileList li { margin-bottom: 10px; }
+
+._formArea .postView dl._fileArea .fileList li::before, ._formArea .postView dl .img-file-area .fileList li::before { content: '파일'; display: inline-block; color: #fff; font-size: 1.3rem; background-color: #214b97; border-radius: 3px; padding: 0px 5px; -webkit-box-sizing: border-box; box-sizing: border-box; margin-right: 5px; }
+
+._formArea .postView dl._fileArea .fileList li a:hover, ._formArea .postView dl .img-file-area .fileList li a:hover { color: #438bfe; }
+
+._formArea .postView dl._fileArea .fileList li:last-of-type, ._formArea .postView dl .img-file-area .fileList li:last-of-type { margin-bottom: 0; }
+
+._formArea .postView dl .img-file-area { margin: 15px 0; }
+
+._formArea .postView dl .img-file-area .imgBox { margin-bottom: 20px; width: 350px; height: 200px; background-color: #cacaca; }
+
+._formArea .postView dl .img-file-area .imgBox img { display: block; width: 100%; height: 100%; }
+
+._formArea .postView dl .inputDl { overflow: hidden; }
+
+._formArea .postView dl .inputDl dt { float: left; background: none; background-color: transparent; width: auto; padding: 0; }
+
+._formArea .postView dl .inputDl dd { float: left; height: auto; padding: 0 !important; }
+
+._formArea .postView dl .vent-view .vent-r-div { display: inline-block; min-width: 440px; }
+
+._formArea .postView dl .part-inq .p_num { width: 10% !important; margin-right: 0; }
+
+._formArea .postView dl.bunchDd { position: relative; }
+
+._formArea .postView dl.bunchDd dd { display: block; width: calc(100% - 200px); height: auto; padding: 5px 10px; }
+
+._formArea .postView dl.bunchDd dd:first-of-type { margin-top: 10px; }
+
+._formArea .postView dl.bunchDd dd:last-of-type { margin-bottom: 10px; }
+
+._formArea .postView dl.bunchDd dd.imgBox { position: absolute; top: 0; right: 0; width: 200px; height: auto; background-color: #cacaca; padding: 0; margin: 0; }
+
+._formArea .postView dl.bunchDd dd.imgBox img { display: block; width: 100%; height: auto; }
+
+._formArea .p-topic { display: inline-block; vertical-align: middle; color: #214b97; font-size: 1.3rem; text-align: center; border: 1px solid #ccc; border-radius: 20px; padding: 0 8px; -webkit-box-sizing: border-box; box-sizing: border-box; margin-right: 5px; }
+
+.hr_line {width:50%; height:1px; background-color:#575757; transform: translate(50%); margin-bottom: 50px;} 
+
+.btn_center {transform: translate(40%);}
+
+.idWrap {margin-top:30px;}
+
+postTable > .qatitle {text-align:right;}
+
+.first-td {border-left:1px solid #d6d6d6;}
+
+.emp_list {position:relative; left:50px;}
+
+@media all and (max-width: 1285px) { ._formArea .postWrite dl._ventWrap dd .ventPart .vent-r-div .inline, ._formArea .postView dl._ventWrap dd .ventPart .vent-r-div .inline { display: block; width: 100% !important; } }
+
+@media all and (max-width: 1100px) { ._formArea .vstList { right: 10px; left: auto; } }
+/*# sourceMappingURL=styForm.css.map */

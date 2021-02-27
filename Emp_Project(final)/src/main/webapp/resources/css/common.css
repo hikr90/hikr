@@ -1,0 +1,121 @@
+/* ================== reset css ================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+
+/* ================== default css ================== */
+body { font-size: 1.5rem; color: #727272; letter-spacing: -0.5px; }
+
+a { text-decoration: none; cursor:pointer; }
+
+a:hover { color: #3482fe; text-decoration: underline; }
+
+a:link, a:active, a:visited { color: #333; }
+
+button, input[type="button"] { cursor: pointer; padding: 0; }
+
+ul, ul li, ol, ol li { list-style: none; }
+
+img, fieldset, iframe { border: 0 none; }
+
+img { vertical-align: middle; }
+
+form legend, fieldset legend, hr { display: none; }
+
+em, address { font-style: normal; }
+
+table { width: 100%; table-layout: fixed; border-collapse: collapse; border-spacing: 0; }
+
+table caption { display: block; overflow: hidden; position: absolute; top: 0; left: 0; width: 1px; height: 1px; }
+
+table th { text-align: center; vertical-align: middle; }
+
+button { border: 0; background-color: transparent; }
+
+h1, h2, h3, h4, h5 { font-weight: normal; }
+
+.hidden { position: absolute; top: 0; left: 0; text-indent: -5000px; }
+
+.clear { clear: both !important; }
+
+.show { display: block !important; }
+
+.floatL { float: left !important; }
+
+.floatR { float: right !important; }
+
+.pos  
+
+.floatN { float: none !important; clear: both; }
+
+.alignC { text-align: center !important; }
+
+.alignL { text-align: left !important; }
+
+.alignR { text-align: right !important; }
+
+.alignRP { text-align: right !important; padding-right:60px;}
+
+#skip { position: absolute; width: 100%; left: 0; top: 0; z-index: 99; }
+
+#skip a { display: block; height: 1px; width: 1px; margin-bottom: -1px; overflow: hidden; font-size: 13px; color: #fff; font-weight: 700; background: #00adef; white-space: nowrap; text-align: center; }
+
+#skip a:focus, #skip a:active { height: auto; width: auto; padding: 8px; margin-bottom: 10px; }
+
+/* --------------------- style :: table ---------------------*/
+table col.auto { width: auto; }
+
+table col.w3per { width: 3%; }
+
+table col.w5per { width: 5%; }
+
+table col.w7per { width: 7%; }
+
+table col.w8per { width: 8%; }
+
+table col.w10per { width: 10%; }
+
+table col.w12per { width: 12%; }
+
+table col.w15per { width: 15%; }
+
+table col.w20per { width: 20%; }
+
+table col.w25per { width: 25%; }
+
+table col.w26per { width: 26%; }
+
+table col.w30per { width: 30%; }
+
+table col.w40per { width: 40%; }
+
+table col.w50per { width: 50%; }
+
+table col.w60per { width: 60%; }
+
+table col.w70per { width: 70%; }
+
+table col.w80per { width: 80%; }
+
+table col.w90per { width: 90%; }
+
+table col.w100per { width: 100%; }
+
+table th._title, table th._nation, table th._sort, table td._title, table td._nation, table td._sort { text-align: left !important; }
+
+/* --------------------- style :: margin ---------------------*/
+.mt10 { margin-top: 10px; }
+
+.mt20 { margin-top: 20px; }
+
+.mt30 { margin-top: 30px; }
+
+.mb10 { margin-bottom: 10px; }
+
+.mb20 { margin-bottom: 20px; }
+
+.mr10 { margin-right: 10px; }
+
+.mr20 { margin-right: 20px; }
+/*# sourceMappingURL=common.css.map */

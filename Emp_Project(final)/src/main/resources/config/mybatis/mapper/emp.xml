@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="emp">
+ 
+	<!-- 사원 목록 불러오기 -->
+	<select id="emp_list" resultType="emp">
+		select * from emp_project order
+		by emp_idx desc
+	</select>
+
+	<!-- 아이디 중복확인을 위한 아이디 파라미터를 통한 한명 검색 -->
+	<select id="emp_one_id" resultType="emp"
+		parameterType="java.lang.String">
+		select * from emp_project where id = #{id}
+	</select>
+
+	<!-- 회원 등록 -->
+	<insert id="emp_insert" parameterType="emp">
+		insert into emp_project
+		values(
+		seq_emp_idx.nextVal,
+		#{dept_name},
+		#{emp_name},
+		#{gender},
+		#{reg_num},
+		#{phone},
+		#{email},
+		#{addr},
+		#{addr_info},
+		sysdate,
+		#{id},
+		#{pwd},
+		#{mgr}
+		)
+	</insert>
+
+	<!-- emp_idx를 통해서 단 한명의 직원 정보를 전부 vo로 이동 -->
+	<select id="emp_one_idx" resultType="emp" parameterType="int">
+		select *
+		from emp_project where emp_idx = #{emp_idx}
+	</select>
+
+	<!-- emp_idx를 통해서 직원 테이블 데이터 삭제 -->
+	<delete id="emp_del" parameterType="int">
+		delete from emp_project where
+		emp_idx = #{emp_idx}
+	</delete>
+
+	<!-- emp_idx를 통한 직원 정보 수정 -->
+	<update id="emp_update" parameterType="emp">
+		update emp_project
+		set
+		dept_name = #{dept_name},
+		emp_name = #{emp_name},
+		gender = #{gender},
+		reg_num = #{reg_num},
+		phone = #{phone},
+		email = #{email},
+		addr = #{addr},
+		addr_info = #{addr_info}
+		where emp_idx = #{emp_idx}
+	</update>
+
+	<!-- 페이지별 게시물 조회 -->
+	<select id="emp_list_condition" parameterType="java.util.HashMap" resultType="emp">
+		select * from (select rank() over(order by emp_idx) no, b.* from (select * from emp_project) b ) where no between #{start} and #{end}
+	</select>
+
+	<!-- 전체 게시물 글 조회 -->
+	<select id="emp_count" resultType="int">
+		select count(*) from emp_project
+	</select>
+
+	<!-- 두 값이 전부 있는 상태에서의 행수 파악 -->
+	<select id="emp_count_both_notnull" resultType="int" parameterType="java.util.HashMap">
+		select count(*) from emp_project where dept_name = #{dept_name} and emp_name like '%'||#{emp_name}||'%'
+	</select>
+	
+	<!-- 둘다 선택이 된 경우 -->	
+	<select id="both_notnull" resultType="emp" parameterType="java.util.HashMap">
+		select * from (select rank() over(order by emp_idx asc) no, b.* from (select * from emp_project where dept_name = #{dept_name} and emp_name like '%'||#{emp_name}||'%') b ) where no between #{start} and #{end}
+	</select>
+	
+	<!-- 부서명만 있는 경우의 행수 파악 -->
+	<select id="emp_count_deptname_nn" resultType="int" parameterType="java.lang.String">
+		select count(*) from emp_project where dept_name = #{dept_name}
+	</select>
+	
+	<!-- 2  부서명만 있는 경우 -->
+	<select id="emp_name_null" resultType="emp" parameterType="java.util.HashMap">
+		select * from (select rank() over(order by emp_idx desc) no, b.* from (select * from emp_project where dept_name = #{dept_name}) b ) where no between #{start} and #{end} 
+	</select>
+
+	<!-- 직원명만 있는 경우의 행수 파악 -->
+   <select id="emp_count_empname_nn" resultType="int" parameterType="java.lang.String">
+      select count(*) from emp_project where emp_name like '%'||#{emp_name}||'%'
+   </select>
+	
+	<!-- 3 직원명만 있는 경우 -->
+	<select id="dept_name_null" resultType="emp" parameterType="java.util.HashMap">
+		select * from (select rank() over(order by emp_idx desc) no, b.* from (select * from emp_project where emp_name like '%'||#{emp_name}||'%') b ) where no between #{start} and #{end}
+	</select>
+	
+	<!-- 특정 부서의 직원들의 부서명칭 일괄 변경 -->
+	<update id="emp_dept_update" parameterType="java.util.HashMap">
+		update emp_project
+		 set 
+		 dept_name = #{update_name}
+		 where dept_name = #{dept_name}			
+	</update>
+	
+	<!-- 특정 부서의 직원들의 정보를 삭제 -->
+	<delete id="emp_dept_del" parameterType="java.lang.String">
+		delete from emp_project where dept_name = #{dept_name}
+	</delete>
+</mapper>

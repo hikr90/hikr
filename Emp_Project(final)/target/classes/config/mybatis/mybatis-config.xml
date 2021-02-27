@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "HTTP://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<setting name="useGeneratedKeys" value="true" />
+		<setting name="defaultExecutorType" value="REUSE" />
+	</settings>
+	
+ 	<typeAliases>
+		<typeAlias type="vo.EmpVO" alias="emp"/> 
+		<typeAlias type="vo.CommuteVO" alias="commute"/> 
+		<typeAlias type="vo.Commute_viewVO" alias="commute_view"/> 
+		<typeAlias type="vo.ReservVO" alias="reserv"/>
+		<typeAlias type="vo.BoardVO" alias="board"/>
+		<typeAlias type="vo.QaVO" alias="qa"/>
+		<typeAlias type="vo.TaskVO" alias="task"/>
+		<typeAlias type="vo.VacVO" alias="vac"/>
+		<typeAlias type="vo.DeptVO" alias="dept"/>
+		<typeAlias type="vo.UploadVO" alias="upload"/>
+	</typeAliases>
+
+	<mappers>
+		<mapper resource="config/mybatis/mapper/emp.xml"/>
+		<mapper resource="config/mybatis/mapper/commute_view.xml"/>
+		<mapper resource="config/mybatis/mapper/login.xml"/>
+		<mapper resource="config/mybatis/mapper/commute.xml" />
+		<mapper resource="config/mybatis/mapper/mypage.xml" />
+		<mapper resource="config/mybatis/mapper/reserv.xml"/>
+		<mapper resource="config/mybatis/mapper/board.xml"/>
+		<mapper resource="config/mybatis/mapper/qa.xml"/>
+		<mapper resource="config/mybatis/mapper/task.xml"/>
+		<mapper resource="config/mybatis/mapper/vac.xml" /> 
+		<mapper resource="config/mybatis/mapper/dept.xml" /> 
+		<mapper resource="config/mybatis/mapper/upload.xml" /> 
+	</mappers> 
+</configuration>

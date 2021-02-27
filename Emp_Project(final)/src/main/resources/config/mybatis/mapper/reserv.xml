@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="reserv">
+
+	<!-- 예약 db 전체출력 -->
+	<select id="res_apply" resultType="reserv">
+		select * from res where res_state = '승인'
+	</select>
+	
+	<!-- 승인대기 상태인 데이터만 모두 가져오기 -->
+	<select id="res_manage" resultType="reserv">
+		select * from res where res_state = '대기'
+	</select>
+	
+	<!-- 예약DB 정보 입력하기 -->
+	<insert id="res_insert" parameterType="reserv">
+		insert into res values(seq_res_idx.nextVal, #{res_name}, #{res_tel}, #{res_ridx}, #{res_date}, #{res_btime}, #{res_etime}, #{res_people}, #{res_content}, default)
+	</insert>
+	
+	<!-- 예약DB 승인/거절 상태 업데이트하기 -->
+	<update id="res_choose" parameterType="java.util.HashMap">
+		update res set res_state = #{res_state} where res_idx = #{res_idx}
+	</update>
+	
+	<!-- 예약DB 유저별 띄워주기 -->
+	<select id="res_user" parameterType="java.util.HashMap" resultType="reserv">
+		select * from (select rank() over(order by res_idx desc) no, b.* from (select * from res where res_name = #{res_name}) b ) where no between #{start} and #{end}
+	</select>
+	
+	<!-- 예약DB 삭제하기 -->
+	<delete id="res_del" parameterType="java.lang.Integer">
+		delete from res where res_idx = #{res_idx} 
+	</delete>
+	
+	<!-- 예약 확인 행수 파악 -->
+	<select id="reserv_count" resultType="int" parameterType="java.lang.String">
+		select count(*) from res where res_name = #{res_name}
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

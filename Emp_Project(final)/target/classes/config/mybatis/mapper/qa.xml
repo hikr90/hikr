@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="qa">
+	
+	<!-- 게시물 조회 -->
+	<select id="qa_list" resultType="qa">
+		select * from qa
+	</select>
+	
+	<!-- 게시물 등록 -->
+	<insert id="qa_insert" parameterType="qa">
+		insert into qa values(seq_qa_idx.nextVal, #{title}, #{emp_name}, #{dept_name}, #{content}, #{id}, #{pwd}, 0, sysdate, seq_qa_idx.currVal, 0, 0, 0)
+	</insert>
+	
+	<!-- 게시물 한 건 조회 -->
+	<select id="qa_one" parameterType="int" resultType="qa">
+		select * from qa where qa_idx = #{qa_idx}
+	</select>
+	
+	<!-- 조회수 증가 -->
+	<update id="qa_readhit" parameterType="int">
+		update qa set readhit = readhit + 1 where qa_idx = #{idx}
+	</update>
+	
+	<!-- 게시글 삭제(된 것처럼) -->
+	<update id="qa_del" parameterType="qa">
+		update qa set title=#{title}, emp_name=#{emp_name}, del_info = -1 where qa_idx = #{qa_idx}
+	</update>
+	
+	<!-- 글 수정 -->
+	<update id="qa_update" parameterType="qa">
+		update qa set title=#{title}, content=#{content}, regdate = sysdate where qa_idx=#{qa_idx}
+	</update>
+	
+	<!-- 페이지별 게시물 조회 -->
+	<select id="qa_list_page" parameterType="java.util.HashMap" resultType="qa">
+		select * from (select rank() over(order by ref desc, step asc) no, b.* from (select * from qa) b ) where no between #{start} and #{end}
+	</select>
+	
+	<!-- 전체 게시물 수 조회 -->
+	<select id="qa_count" resultType="int">
+		select count(*) from qa
+	</select>
+	
+	<!-- 기준글의 step보다 큰 step을 1씩 증가 -->
+	<update id="qa_update_step" parameterType="qa">
+		update qa set step = step + 1 where ref = #{ref} and step > #{step}
+	</update>
+	
+	<!-- 뎁스 증가 -->
+	<insert id="qa_reply" parameterType="qa">
+		insert into qa values(seq_qa_idx.nextVal, #{title}, #{emp_name}, #{dept_name}, #{content},
+							  #{id}, #{pwd}, 0, sysdate, #{ref}, #{step}, #{depth}, 0)
+	</insert>
+	
+	<select id="qa_idx_pwd" parameterType="java.util.HashMap" resultType="qa">
+		select * from qa where qa_idx= #{qa_idx} and pwd=#{pwd}
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

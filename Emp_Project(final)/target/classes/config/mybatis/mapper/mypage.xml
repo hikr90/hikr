@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mypage">
+	
+	<!-- 내정보에서 수정한 데이터대로 저장 -->
+	<update id="mypage_update" parameterType="emp">
+		update emp_project
+			set
+			dept_name = #{dept_name},
+			emp_name = #{emp_name},
+			gender = #{gender},
+			phone = #{phone},
+			reg_num	= #{reg_num},
+			email = #{email},
+			addr = #{addr},
+			addr_info = #{addr_info},
+			id = #{id},
+			pwd = #{pwd}
+			where emp_idx = #{emp_idx}
+	</update>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

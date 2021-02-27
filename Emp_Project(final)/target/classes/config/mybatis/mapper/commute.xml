@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="commute">
+	<!-- 한 사람의 출퇴근 기록을 출력  -->
+	<select id="commute_select" resultType="commute" parameterType="int">
+		SELECT commute_idx, emp_idx, c_date, gtw, gow, ROUND((gow-gtw)*24*60) as diffhour FROM commute 
+		where emp_idx = #{emp_idx}  and c_date >= c_date - 7  order by commute_idx desc
+	</select>
+		
+	<!-- 출석 -->
+	<insert id="commute_insert" parameterType="commute">
+		insert into commute values(
+			seq_commute_idx.nextval,
+			#{emp_idx},
+			sysdate,
+			sysdate,
+			null,
+			0
+			)
+	</insert>
+		
+		
+	<!-- 퇴근시 받아오는 commute_idx -->
+	<select id="commute_one" resultType="commute" parameterType="int">
+		select * from commute where commute_idx=#{commute_idx}
+	</select>
+	
+	<update id="commute_update" parameterType="int">
+		update commute set gow=sysdate
+		where commute_idx=#{commute_idx}
+	</update>			
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

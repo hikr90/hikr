@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dept">
+	<!-- 직원DB와 근태관리에서 SELECTBAR에서 부서명 데이터 출력하기위한 SELECT문 -->
+	<select id="dept_mgr" resultType="dept">
+		select * from dept_project
+	</select>
+	
+	<!-- DEPT_NAME이 없는 경우 행의 수 파악 -->
+	<select id="dept_count" resultType="int">
+		select count(*) from dept_project
+	</select>
+	
+	<!-- DEPT_NAME이 없는 경우의 부서 목록 출력 -->
+	<select id="dept_name_null" resultType="dept" parameterType="java.util.HashMap">
+		select * from (select rank() over(order by dept_name desc) no, b.* from (select * from dept_project) b ) where no between #{start} and #{end}
+	</select>
+	
+	<!--  -->
+	<select id="dept_count_nn" resultType="int" parameterType="java.lang.String">
+		select count(*) from dept_project where dept_name = #{dept_name}
+	</select>
+	
+	<!-- DEPT_NAME이 있는 경우의 부서 목록 출력  -->
+	<select id="dept_name_nn" resultType="dept" parameterType="java.util.HashMap">
+		select * from (select rank() over(order by dept_name desc) no, b.* from (select * from dept_project where lower(dept_name) like lower('%'||#{dept_name}||'%')) b ) where no between #{start} and #{end}
+	</select>
+	
+	<!-- 검색한 부서 하나 있는지 검색 -->
+	<select id="dept_one" resultType="dept" parameterType="java.lang.String">
+		select * from dept_project where dept_name = #{dept_name}
+	</select>
+	
+	<!-- 부서 추가 -->
+	<insert id="dept_insert" parameterType="java.lang.String">
+		insert into dept_project values (#{dept_name})
+	</insert>
+	
+	<!-- 특정 부서의 직원들의 부서명칭 일괄 변경 -->
+	<update id="dept_update" parameterType="java.util.HashMap">
+		update dept_project
+		set
+		dept_name = #{update_name}
+		where dept_name = #{dept_name}
+	</update>
+	
+	<!-- 부서 삭제  -->
+	<delete id="dept_del" parameterType="java.lang.String">
+		delete from dept_project where dept_name = #{dept_name}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

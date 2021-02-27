@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vac">
+
+<!-- 휴가 신청 -->
+<insert id="vac_insert" parameterType="vac">
+	insert into vacation values(
+		#{emp_idx},
+		seq_vac_idx.nextval,
+		#{start},
+		#{end},
+		0
+	)
+	
+</insert>	
+
+<!-- 휴가 관리 뷰  -->
+<select id="view_select" resultType="vo.Emp_Vac_ViewVO">
+	select  * from manageView
+	where check_vac = 0
+</select>
+
+<!-- 휴가 승인,거절을 위한 컬럼하나 선택  -->
+<select id="vac_selectone" resultType="vac" parameterType="int">
+		select * from vacation where vac_idx=#{vac_idx}
+</select>
+
+<!-- 승인 -->
+<update id="vac_recognize" parameterType="vac">
+		update vacation set check_vac = 1
+		where vac_idx=#{vac_idx}
+</update>	
+
+<!-- 거절  -->
+<update id="vac_reject" parameterType="vac">
+		update vacation set check_vac = 2
+		where vac_idx=#{vac_idx}
+		
+		
+</update>
+
+<!-- 휴가 승인 뷰(달력에 띄울것)  -->
+<select id="view_select_rec" resultType="vo.Emp_Vac_ViewVO">
+	select * from manageView
+	where check_vac = 1
+</select>
+
+<!-- 휴가 중복체크 방지 조회  -->
+<select id="vac_selectOverlaplist" resultType="vac" parameterType="java.util.HashMap">
+	select * from (select rank() over(order by vac_idx desc) no, b.* from (select * from vacation where emp_idx = #{emp_idx}) b ) where no between #{start} and #{end}
+</select>
+
+<!-- emp_idx를 통한 행수 파악 -->
+<select id="vac_count" resultType="int" parameterType="int">
+	select count(*) from vacation where emp_idx = #{emp_idx}
+</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

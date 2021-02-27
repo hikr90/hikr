@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="commute_view">
+	<!-- 오늘자에 해당하는 데이터만 뽑아오기 -->
+	<select id="commute_view_selectList" resultType="commute_view">
+		select * from commute_view where to_char(c_date,'yyyy-mm-dd') = to_char(sysdate,'yyyy-mm-dd') order by dept_name
+	</select>
+	
+	<!-- 검색 기록에따른 검색결과 3가지 경우
+			1 둘다 선택이 된 경우 -->
+	<select id="both_notnull" resultType="commute_view" parameterType="java.util.HashMap">
+		select * from (select rank() over(order by c_date desc) no, b.* from (select * from commute_view where dept_name = #{dept_name} and emp_name = #{emp_name} and to_char(c_date,'yyyy-mm-dd') = to_char(sysdate,'yyyy-mm-dd')) b ) where no between #{start} and #{end}
+	</select>
+	
+	<!-- 2  부서명만 있는 경우 -->
+	<select id="emp_name_null" resultType="commute_view" parameterType="java.util.HashMap">
+		select * from (select rank() over(order by c_date desc) no, b.* from (select * from commute_view where dept_name = #{dept_name} and to_char(c_date,'yyyy-mm-dd') = to_char(sysdate,'yyyy-mm-dd')) b ) where no between #{start} and #{end} 
+	</select>
+	
+	<!-- 3 직원명만 있는 경우 -->
+	<select id="dept_name_null" resultType="commute_view" parameterType="java.util.HashMap">
+		select * from (select rank() over(order by c_date desc) no, b.* from (select * from commute_view where emp_name = #{emp_name} and to_char(c_date,'yyyy-mm-dd') = to_char(sysdate,'yyyy-mm-dd')) b ) where no between #{start} and #{end}
+	</select>
+	
+	<!-- 페이지 데이터가 담긴 HASH MAP으로 SELECTLIST -->
+	<select id="cv_list_condition" resultType="commute_view" parameterType="java.util.HashMap">
+		select * from (select rank() over(order by c_date desc) no, b.* from (select * from commute_view where to_char(c_date,'yyyy-mm-dd') = to_char(sysdate,'yyyy-mm-dd')) b ) where no between #{start} and #{end}
+	</select>
+	
+	<!-- 첫 실행시의 commute_view 행수 파악 (두 값 없는 것 파악) -->
+	<select id="cv_count" resultType="int">
+		select count(*) from commute_view where to_char(c_date,'yyyy-mm-dd') = to_char(sysdate,'yyyy-mm-dd')
+	</select>
+	
+	<!-- 두 값이 전부 있는 상태에서의 행수 파악 -->
+	<select id="cv_count_both_notnull" resultType="int" parameterType="java.util.HashMap">
+		select count(*) from commute_view where to_char(c_date,'yyyy-mm-dd') = to_char(sysdate,'yyyy-mm-dd') and dept_name = #{dept_name} and emp_name = #{emp_name}
+	</select>
+		
+	<!-- 부서명만 있는 경우의 commute_view 행수 파악 -->
+	<select id="cv_count_deptname_nn" resultType="int" parameterType="java.lang.String">
+		select count(*) from commute_view where to_char(c_date,'yyyy-mm-dd') = to_char(sysdate,'yyyy-mm-dd') and dept_name = #{dept_name}
+	</select>
+	
+	<!-- 직원명만 있는 경우의 행수 파악 -->
+	<select id="cv_count_empname_nn" resultType="int" parameterType="java.lang.String">
+		select count(*) from commute_view where to_char(c_date,'yyyy-mm-dd') = to_char(sysdate,'yyyy-mm-dd') and emp_name = #{emp_name}	
+	</select>
+	
+	<!-- emp_idx를 통해서 c_date가 오늘날짜와 같은 직원만 불러오기 -->
+	<select id="cv_list_one" resultType="commute_view" parameterType="int">
+		select * from commute_view where emp_idx = #{emp_idx} and to_char(c_date,'yyyy-mm-dd') = to_char(sysdate,'yyyy-mm-dd')
+	</select>
+	
+	<!-- emp_idx를 통해서 gow가 없는 오늘 날짜의 데이터의 gow를 수정 -->
+	<update id="gow_update" parameterType="int">
+		update commute_view set gow = sysdate where emp_idx = #{emp_idx} and to_char(c_date,'yyyy-mm-dd') = to_char(sysdate,'yyyy-mm-dd')
+	</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
